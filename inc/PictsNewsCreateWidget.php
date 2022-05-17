@@ -104,7 +104,7 @@ class PictsNewsCreateWidget extends WP_Widget {
     }
 }
 
-new PictsClassCreateWidget();
+new PictsNewsCreateWidget();
 
 //function to register the widget
 function picts_newsletter_create_widget() {
