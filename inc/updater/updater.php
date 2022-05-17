@@ -1,6 +1,6 @@
 <?php
 
-class Smashing_Updater {
+class Picts_Updater {
 
 	private $file;
 

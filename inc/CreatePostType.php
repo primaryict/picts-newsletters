@@ -1,24 +1,17 @@
 <?php
 
 /**
- *
+ * Create Post Type Class
 */
 
 if ( !class_exists( 'Create_Post_Type' )) {
   class Create_Post_Type {
-
-    private $file;
 
     private $properties;
 
     private $labels;
 
     private $args;
-
-    public function __construct( $file )
-    {
-      $this->file = $file;
-    }
 
     public function set_properties( $properties )
     {
@@ -27,27 +20,28 @@ if ( !class_exists( 'Create_Post_Type' )) {
 
     public function initialize()
     {
+      // Register Custom Post Type
+      $this->set_labels();
+
       // Runs when plugin is initialized
-      register_post_type( 'post_type', array($this, 'post_type_builder') );
+      add_action( 'init', array($this, 'post_type_builder') );
     }
 
     public function post_type_builder() {
-      // Register Custom Post Type
-      $this->set_labels();
-  	  register_post_type( 'post_type', $this->$args );
+  	  register_post_type( $this->properties['post_type'], $this->args );
     }
 
     public function set_labels()
     {
       // Set all arguments
-    	$this->$labels = array(
+    	$this->labels = array(
     		'name'                  => _x( $this->properties['plural_label'], 'Post Type General Name', 'picts' ),
     		'singular_name'         => _x( $this->properties['singular_label'], 'Post Type Singular Name', 'picts' ),
     		'menu_name'             => __( $this->properties['plural_label'], 'picts' ),
     		'name_admin_bar'        => __( $this->properties['singular_label'], 'picts' ),
     		'archives'              => __( $this->properties['singular_label'] . ' Archives', 'picts' ),
     		'attributes'            => __( $this->properties['singular_label'] . ' Attributes', 'picts' ),
-    		'parent_item_colon'     => __( 'Parent ' . $this->properties['singular_label'] . .':', 'picts' ),
+    		'parent_item_colon'     => __( 'Parent ' . $this->properties['singular_label'] . ':', 'picts' ),
     		'all_items'             => __( 'All ' . $this->properties['plural_label'], 'picts' ),
     		'add_new_item'          => __( 'Add New ' . $this->properties['singular_label'], 'picts' ),
     		'add_new'               => __( 'Add New', 'picts' ),
@@ -69,10 +63,10 @@ if ( !class_exists( 'Create_Post_Type' )) {
     		'items_list_navigation' => __( 'Items list navigation', 'picts' ),
     		'filter_items_list'     => __( 'Filter items list', 'picts' ),
     	);
-    	$this->$args = array(
+    	$this->args = array(
     		'label'                 => __( $this->properties['singular_label'], 'picts' ),
     		'description'           => __( $this->properties['description'], 'picts' ),
-    		'labels'                => $labels,
+    		'labels'                => $this->labels,
     		'supports'              => $this->properties['supports'],
     		'taxonomies'            => $this->properties['taxonomies'],
     		'hierarchical'          => false,

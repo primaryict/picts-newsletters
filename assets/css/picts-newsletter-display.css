@@ -1,0 +1,13 @@
+.newsletter-display {
+    padding: 10px;
+    border-radius: 5px;
+}
+.newsletter-display ul {
+    padding: 10px;
+    margin: 0;
+    list-style: none;
+}
+.newsletter-display ul {
+    padding: 5px 0;
+    margin: 0;
+}

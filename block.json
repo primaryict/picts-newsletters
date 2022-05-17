@@ -1,0 +1,19 @@
+{
+  "apiVersion": 2,
+  "name": "picts-newsletter/view-newsletter-list",
+  "version": "0.1.0",
+  "title": "View Newsletters",
+  "category": "picts-category",
+  "icon": "smiley",
+  "description": "View Newsletters in a list with a coloured background.",
+  "supports": {
+	"html": false
+  },
+  "attributes": {
+	"title": {
+	  "type": "string"
+	}
+  },
+  "textdomain": "picts-newsletter",
+  "render_callback": "newsletter_block_callback"
+}
