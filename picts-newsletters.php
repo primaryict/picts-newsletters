@@ -5,7 +5,7 @@
  * Plugin Name:       Primary ICT Support - School Newsletters
  * Plugin URI:        www.primaryictsupport.co.uk
  * Description:       Primary ICT Support plugin to display newsletters
- * Version:           0.0.1
+ * Version:           0.0.2
  * Author:            John Emmett
  * Author URI:        www.primaryictsupport.co.uk
  * License:           GPL-2.0+
