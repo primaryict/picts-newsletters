@@ -14,9 +14,7 @@ class PictsNewsCreateWidget extends WP_Widget {
             'classname' => 'picts_newsletter_display_widget',
             'description' => 'Add a call to action box with your own text and link.'
         );
-
         parent::__construct( 'picts_newsletter_display_widget', 'Display Newsletters', $widget_options );
-
     }
 
     //function to define the data saved by the widget
@@ -29,9 +27,7 @@ class PictsNewsCreateWidget extends WP_Widget {
 
     }
 
-
     //function to output the widget form
-
     function form( $instance ) {
 
         // Check values

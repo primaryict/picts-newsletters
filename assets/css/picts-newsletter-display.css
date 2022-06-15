@@ -11,3 +11,7 @@
     padding: 5px 0;
     margin: 0;
 }
+
+.newsletter-display ul li a .fas {
+    margin-right: 10px;
+}

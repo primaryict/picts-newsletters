@@ -2,3 +2,67 @@
     max-width: 90%;
     height: auto;
 }
+
+
+/**
+ * Style for the admin are and setting pages for the PICTS Theme.
+ */
+
+/* Menu Icon Adjustment */
+.toplevel_page_picts-plugin .wp-menu-image img { padding-top:7px!important; width: 20px; }
+
+.picts-settings-page-wrapper {
+
+}
+
+.picts-settings-page-wrapper .picts-header {
+    /*border-bottom: 1px solid #e0e0e0;*/
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.picts-settings-page-wrapper .picts-header h1 {
+    line-height: 1em;
+    margin-top: 20px;
+}
+
+.picts-settings-page-wrapper .picts-header .theme-logo {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.picts-settings-page-wrapper .picts-header hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.picts-container-fluid {
+    width: 70%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+.picts-settings-page-wrapper .picts-settings-page-content {
+}
+.picts-settings-page-wrapper .picts-settings-page-content .tab-content {
+}
+
+.picts-settings-page-wrapper .picts-settings-page-content .sub-section {
+    border: 1px solid #c5c5c5;
+    background: #fbfbfb;
+    margin: 10px 0;
+    padding: 20px;
+}
+
+.picts-settings-page-wrapper .picts-settings-page-content .sub-section h2.header {
+    margin: 0 0 10px 0;
+}
+.picts-settings-page-wrapper .picts-settings-page-content .sub-section .sub-header {
+    margin: 20px 0 0px 0;
+}
+.picts-settings-page-wrapper .picts-settings-page-content .sub-section p {
+    margin: 10px 0;
+}

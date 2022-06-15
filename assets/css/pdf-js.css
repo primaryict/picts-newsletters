@@ -1,0 +1,61 @@
+#picts-pdf {
+    display: block;
+    width: 100%;
+}
+#picts-pdf .toolbar, #picts-pdf .toolbar .left, #picts-pdf .toolbar .right {
+    background: #535353;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 5px;
+}
+#picts-pdf .toolbar span {
+    color: #fff;
+    opacity: 0.8;
+    transition: all ease 0.3s;
+    margin: 0px;
+    align-self:middle;
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 2em;
+    line-height: 1em;
+}
+#picts-pdf .toolbar a {
+    color: #fff;
+    opacity: 0.8;
+    transition: all ease 0.3s;
+}
+#picts-pdf .toolbar #zoom {
+    margin: 0 30px;
+    font-size: 0.65em;
+    align-self:center;
+}
+#picts-pdf .toolbar #zoom #zoomlevel {
+    font-size: 12px;
+}
+#picts-pdf .toolbar span i {
+    display: block; 
+}
+#picts-pdf .toolbar span:hover {
+    opacity: 1;
+}
+
+#picts-pdf .toolbar #page, #picts-pdf .toolbar #page span {
+    font-size: 1em;
+    align-self: center;
+}
+
+#picts-pdf #viewport {
+    background: #efefef;
+    padding: 10px;
+}
+#picts-pdf #viewport #stage {
+    overflow: hidden;
+    display: flex;
+}
+#picts-pdf #viewport #canvas {
+    /*transition: all ease 0.3s;*/
+    transform-origin: top left;
+}

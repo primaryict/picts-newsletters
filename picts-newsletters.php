@@ -5,7 +5,7 @@
  * Plugin Name:       Primary ICT Support - School Newsletters
  * Plugin URI:        www.primaryictsupport.co.uk
  * Description:       Primary ICT Support plugin to display newsletters
- * Version:           0.0.2
+ * Version:           0.0.3
  * Author:            John Emmett
  * Author URI:        www.primaryictsupport.co.uk
  * License:           GPL-2.0+
@@ -49,8 +49,7 @@ $newsletter->set_properties( array(
         'singular_label'  => 'Newsletter',
         'plural_label'    => 'Newsletters',
         'description'     => 'Post type to display newsletters',
-        'supports'        => array('title'),
-        'taxonomies'      => array('category'),
+        'supports'        => array('title')
     )
 );
 $newsletter->initialize();
@@ -60,28 +59,40 @@ if( ! class_exists( 'Add_Meta_Box' ) ){
     include_once( plugin_dir_path( __FILE__ ) . 'inc/AddMetaBox.php' );
 }
 
-// Change page template for single Newsletter
+// // Change page template for single Newsletter
 if( ! class_exists( 'NewsletterTemplate' ) ){
     include_once( plugin_dir_path( __FILE__ ) . 'inc/NewsletterTemplate.php' );
 }
 
-// Change page template for single Newsletter
-if( ! class_exists('PictsNewsCreateWidget') ){
-    include_once( plugin_dir_path( __FILE__ ) . 'inc/PictsNewsCreateWidget.php' );
-}
+// // Change page template for single Newsletter
+// if( ! class_exists('PictsNewsCreateWidget') ){
+//     include_once( plugin_dir_path( __FILE__ ) . 'inc/PictsNewsCreateWidget.php' );
+// }
 
 // Adding Gutenberg Blocks - Removed for now using short code
 //if( ! class_exists( 'PictsNewsGutenBlocks' ) ){
 //    include_once( plugin_dir_path( __FILE__ ) . 'block/PictsNewsGutenBlocks.php' );
 //}
 
-// Change page template for single Newsletter
+// // Change page template for single Newsletter
 if( ! class_exists( 'PictsNewsCreateShortcode' ) ){
     include_once( plugin_dir_path( __FILE__ ) . 'inc/PictsNewsCreateShortcode.php' );
+}
+
+if( ! class_exists( 'PictsPDFViewer' ) ){
+    include_once( plugin_dir_path( __FILE__ ) . 'inc/PictsPDFViewer.php' );
 }
 
 $picts_newsletter_settings = plugin_dir_path( __FILE__ ) . '/admin/inc/settings-page/settings-page.php';
 if ( is_readable( $picts_newsletter_settings ) ) {
     require_once $picts_newsletter_settings;
 }
+
+function add_pdfjs_scripts() {
+
+        // wp_enqueue_script( 'pdf-js', 'https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js');
+        wp_enqueue_script( 'fa-kit', 'https://kit.fontawesome.com/e6cf51480f.js');
+    
+}
+add_action( 'wp_enqueue_scripts', 'add_pdfjs_scripts' );
 

@@ -19,11 +19,11 @@ class PictsNewsCreateShortcode {
 
         $a = shortcode_atts( array(
             'numberofposts' => '5',
-            'id' => 'newsletterlist',
+            'id' => null,
             'bgcolor' => '#efefef',
-            'title' => 'Button',
+            'title' => null,
             'fontcolor' => '#333',
-            'icon' => 'fa-link'
+            'icon' => null
         ), $atts );
 
         $query_args = array(
@@ -37,14 +37,22 @@ class PictsNewsCreateShortcode {
         //echo "<pre>". var_export($query, true). "</pre>";
         if($query->have_posts()) :
 
-            $result = '<div class="newsletter-display" style="background-color: '.$a['bgcolor'].';color:'.$a['fontcolor'].';">';
-            $result .= '<h3 class="title" style="color:'.$a['fontcolor'].';">'.$a['title'].'</h3>';
+            if($a['id']) {
+                $id = "id='".$a['id']."' ";
+            }
+            $result = '<div '.$id.'class="newsletter-display" style="background-color: '.$a['bgcolor'].';color:'.$a['fontcolor'].';">';
+            if($a['title'])  {
+                $result .= '<h3 class="title" style="color:'.$a['fontcolor'].';">'.$a['title'].'</h3>';
+            }
             $result .= '<ul class="newletters">';
 
             while($query->have_posts()) :
                 $query->the_post();
-
-                $result .= '<li class="newsletter-posts"><a href="'.get_permalink( get_the_ID() ).'" title="' . get_the_title() . '" style="color:'.$a['fontcolor'].';"><span class="fa '.$a['icon'].'"></span> ' . get_the_title() . '</a></li>';
+                $icon = "";
+                if($a['icon']) {
+                    $icon = '<span class="fas '.$a['icon'].'"></span>';
+                }
+                $result .= '<li class="newsletter-posts"><a href="'.get_permalink( get_the_ID() ).'" title="' . get_the_title() . '" style="color:'.$a['fontcolor'].';">'. $icon . get_the_title() . '</a></li>';
 
             endwhile;
 
@@ -61,7 +69,9 @@ class PictsNewsCreateShortcode {
 
         // 1. Styles.
         wp_enqueue_style( 'picts-newsletter-list', PICTS_NEWSLETTERS_PLUGIN_DIR . 'assets/css/picts-newsletter-display.css');
-        wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css');
+        //wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css');
+        wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+        
 
         // 2. Scripts.
 //        wp_enqueue_script( 'picts-subpages-js', plugin_dir_url( __FILE__ ) . 'assets/js/picts-subpages.js', array(), false, true );
